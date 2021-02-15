@@ -1,2 +1,0 @@
-com/tistory/bbdevstory/springboot/web/HelloControllerTest.java
- com.tistory.bbdevstory.springboot.web.HelloControllerTest
