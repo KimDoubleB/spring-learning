@@ -1,13 +1,11 @@
-<!doctype html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>스프링 부트 웹서비스</title>
-</head>
-<body>
+{{>layout/header}}
+
     <h1>스프링 부트로 시작하는 웹 서비스</h1>
-</body>
-</html>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            </div>
+        </div>
+    </div>
+{{>layout/footer}}
