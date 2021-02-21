@@ -1,0 +1,36 @@
+package hello.coreEx1;
+
+import hello.coreEx1.discount.DiscountPolicy;
+import hello.coreEx1.discount.RateDiscountPolicy;
+import hello.coreEx1.member.MemberService;
+import hello.coreEx1.member.MemberServiceImpl;
+import hello.coreEx1.member.MemoryMemberRepository;
+import hello.coreEx1.order.OrderService;
+import hello.coreEx1.order.OrderServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+    // DI (Dependency Injection): 의존관계 주입
+
+    @Bean
+    public MemberService memberService() {
+        return new MemberServiceImpl(memberRepository());
+    }
+
+    @Bean
+    public OrderService orderService() {
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
+    }
+
+    @Bean
+    public MemoryMemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
+
+    @Bean
+    public DiscountPolicy discountPolicy() {
+        return new RateDiscountPolicy();
+    }
+}
