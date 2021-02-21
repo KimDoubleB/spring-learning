@@ -30,10 +30,11 @@ class OrderServiceTest {
 
         String itemName = "Macbook";
         int itemPrice = 3_000_000;
+        int discountPrice = itemPrice * 10 / 100;
         Order order = orderService.createOrder(memberId, "Macbook", itemPrice);
 
-        assertThat(order.getDiscountPrice()).isEqualTo(1000);
-        assertThat(order.calculatePrice()).isEqualTo(2_999_000);
+        assertThat(order.getDiscountPrice()).isEqualTo(itemPrice * 10 / 100);
+        assertThat(order.calculatePrice()).isEqualTo(itemPrice - discountPrice);
 
     }
 }
