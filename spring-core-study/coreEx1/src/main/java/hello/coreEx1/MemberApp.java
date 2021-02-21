@@ -3,11 +3,11 @@ package hello.coreEx1;
 import hello.coreEx1.member.Grade;
 import hello.coreEx1.member.Member;
 import hello.coreEx1.member.MemberService;
-import hello.coreEx1.member.MemberServiceImpl;
 
 public class MemberApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
         Member member = new Member(1L, "bobae", Grade.VIP);
         memberService.join(member);
 

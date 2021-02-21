@@ -1,17 +1,26 @@
 package hello.coreEx1.order;
 
+import hello.coreEx1.AppConfig;
 import hello.coreEx1.member.Grade;
 import hello.coreEx1.member.Member;
 import hello.coreEx1.member.MemberService;
-import hello.coreEx1.member.MemberServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class OrderServiceTest {
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
+
 
     @Test
     void createOrder() {
