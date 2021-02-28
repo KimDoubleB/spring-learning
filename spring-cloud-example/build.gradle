@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    compile project(':display')
+    compile project(':product')
+    compile project(':eureka-server')
+}
