@@ -1,5 +1,5 @@
 db:
   driver: 'com.jdbc.Driver'
   url: 'jdbc:mysql:/127.0.0.1:3306'
-  username: 'whoAreYou'
-  password: 'letMeIn'
+  username: '{cipher}cc4c6d4fd5ce31f30359c611f8740dfea7a3e83ecfa006209ec311dea10d05b5'
+  password: '{cipher}d2523c4b5b679da9dbec278542ca8185a5e56673201621f61946cb0431c5e607'
