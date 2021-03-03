@@ -1,6 +1,6 @@
 package com.encrypt.encrypt.controller;
 
-import com.encrypt.encrypt.config.DBConfig;
+import com.encrypt.encrypt.config.DBConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/")
 public class MainController {
 
-    final DBConfig dbConfig;
+    final DBConfiguration dbConfiguration;
 
-    public MainController(DBConfig dbConfig) {
-        this.dbConfig = dbConfig;
+    public MainController(DBConfiguration dbConfiguration) {
+        this.dbConfiguration = dbConfiguration;
     }
 
     @GetMapping("")
     @ResponseBody
     public String test(){
-        return dbConfig.toString();
+        return dbConfiguration.toString();
     }
 }
