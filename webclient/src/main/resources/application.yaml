@@ -1,0 +1,3 @@
+base:
+  uri: "https://jsonplaceholder.typicode.com/posts"
+  token: ${SITE_API_TOKEN}
