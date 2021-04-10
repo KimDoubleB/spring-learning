@@ -1,0 +1,2 @@
+POST localhost:8080/api/product
+Authorization: Bearer token-token-token
