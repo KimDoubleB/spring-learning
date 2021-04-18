@@ -1,4 +1,4 @@
-package com.practice.webclient.dto;
+package com.practice.webclient.jsonplace.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

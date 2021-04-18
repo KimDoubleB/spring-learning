@@ -1,7 +1,7 @@
 package com.practice.webclient;
 
-import com.practice.webclient.dto.UserPostResponse;
-import com.practice.webclient.service.JsonPlaceWebClient;
+import com.practice.webclient.jsonplace.dto.UserPostResponse;
+import com.practice.webclient.jsonplace.service.JsonPlaceWebClient;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

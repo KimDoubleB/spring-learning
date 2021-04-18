@@ -1,6 +1,6 @@
-package com.practice.webclient.config;
+package com.practice.webclient.jsonplace.config;
 
-import com.practice.webclient.service.JsonPlaceWebClient;
+import com.practice.webclient.jsonplace.service.JsonPlaceWebClient;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

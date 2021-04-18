@@ -1,7 +1,7 @@
-package com.practice.webclient.service;
+package com.practice.webclient.jsonplace.service;
 
-import com.practice.webclient.config.WebClientProperty;
-import com.practice.webclient.dto.JsonPlaceResponse;
+import com.practice.webclient.jsonplace.config.WebClientProperty;
+import com.practice.webclient.jsonplace.dto.JsonPlaceResponse;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;

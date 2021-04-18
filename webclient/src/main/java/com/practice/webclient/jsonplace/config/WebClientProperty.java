@@ -1,4 +1,4 @@
-package com.practice.webclient.config;
+package com.practice.webclient.jsonplace.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
