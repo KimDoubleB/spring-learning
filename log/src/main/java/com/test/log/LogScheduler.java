@@ -7,13 +7,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class LogScheduler {
-    private final static Logger log = LoggerFactory.getLogger(LogScheduler.class);
+    private static final Logger log = LoggerFactory.getLogger(LogScheduler.class);
 
     @Scheduled(fixedRate = 2000)
     public void makeDebugLog() {
         log.debug("This is\na debug\nlog");
     }
-
 
     @Scheduled(fixedRate = 5000)
     public void makeInfoLog() {
@@ -24,4 +23,5 @@ public class LogScheduler {
     public void logException() {
         throw new RuntimeException("! Error happened !");
     }
+
 }
