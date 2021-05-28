@@ -3,7 +3,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: eureka.default.svc.cluster.local:8761
 
   server:
     response-cache-update-interval-ms: 1000
