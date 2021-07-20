@@ -1,0 +1,11 @@
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: eureka.default.svc.cluster.local:8761
+
+  server:
+    response-cache-update-interval-ms: 1000
+    eviction-interval-timer-in-ms: 30000  # default 60000
+    defaultOpenForTrafficCount: 0 # default 1. set 0 for warm up mode

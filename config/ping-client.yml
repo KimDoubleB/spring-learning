@@ -1,0 +1,8 @@
+eureka:
+  instance:
+    prefer-ip-address: true       # IP 주소 등록
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    service-url:
+      defaultZone: eureka.default.svc.cluster.local:8761
