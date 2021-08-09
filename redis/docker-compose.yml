@@ -1,0 +1,12 @@
+version: '3.9'
+
+services: 
+  redis:
+    image: redis:6.2
+    command: redis-server --requirepass 1234 --port 6379
+    restart: always
+    user: "501:20" # set UID/GID using id
+    ports:
+      - 6379:6379
+    volumes: 
+      - ./data:/data:rw
