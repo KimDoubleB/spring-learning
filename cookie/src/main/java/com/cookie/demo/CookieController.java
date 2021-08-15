@@ -5,11 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
+import java.util.Map;
 
 import static com.cookie.demo.Member.KEY;
 
@@ -26,9 +28,13 @@ public class CookieController {
     }
 
     @GetMapping("/home")
-    public String getHomePage(HttpServletRequest request,
+    public String getHomePage(@RequestHeader Map<String, Object> requestHeader,
+                              HttpServletRequest request,
                               HttpServletResponse response,
                               Model model) {
+
+        log.info("HEADER : {}", requestHeader);
+        model.addAttribute("header", requestHeader);
 
         // Get cookie from http request
         var cookies = request.getCookies();
@@ -74,7 +80,7 @@ public class CookieController {
         var memberId = sequenceGenerator.getNext();
         var newMember = Member.create(memberId, "MEMBER " + memberId);
         memberRepository.save(newMember);
-        var memberIdentityCookie = new Cookie(KEY, newMember.getMemberId().toString());
+        var memberIdentityCookie = new Cookie(KEY, String.valueOf(memberId));
         memberIdentityCookie.setMaxAge(3600);
         memberIdentityCookie.setPath("/");
         memberIdentityCookie.setHttpOnly(true);
@@ -98,7 +104,7 @@ public class CookieController {
     }
 
     public boolean isMemberInfoCookie(Cookie cookie) {
-        return !cookie.getName().equals(KEY);
+        return cookie.getName().equals(KEY);
     }
 
 }

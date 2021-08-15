@@ -8,11 +8,24 @@
     <title>Cookie Test</title>
 </head>
 <body>
-    <p th:if="${hasCookie}">
-        cookie !
-    </p>
-    <p th:if="${!hasCookie}">
-        no cookie !
-    </p>
+<p th:if="${hasCookie}">
+    cookie !
+</p>
+<p th:if="${!hasCookie}">
+    no cookie !
+</p>
+
+<br>
+<br>
+<hr>
+
+<p>Your request header</p>
+<table th:each="entry : ${header.entrySet()}">
+    <tr>
+        <td th:text="${entry.key}">Key 1</td>
+        <td>:</td>
+        <td th:text="${entry.value}">Value 1</td>
+    </tr>
+</table>
 </body>
 </html>
