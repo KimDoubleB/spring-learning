@@ -9,5 +9,14 @@
 </head>
 <body>
   <p>"HELLO"</p>
+  <hr>
+  <p>Your request header</p>
+  <table th:each="entry : ${header.entrySet()}">
+      <tr>
+          <td th:text="${entry.key}">Key 1</td>
+          <td>:</td>
+          <td th:text="${entry.value}">Value 1</td>
+      </tr>
+  </table>
 </body>
 </html>
