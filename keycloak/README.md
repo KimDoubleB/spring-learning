@@ -74,3 +74,10 @@ public class KeycloakConfig extends KeycloakWebSecurityConfigurerAdapter {
 ### Restrict endpoint
 ![2](https://user-images.githubusercontent.com/37873745/130627490-5f6dd022-48ef-4570-994f-037f1b595a0f.png)
 
+-----
+
+References
+- https://www.keycloak.org/docs/latest/getting_started/
+- https://www.keycloak.org/getting-started/getting-started-docker
+- https://www.keycloak.org/docs/latest/securing_apps/#_spring_security_adapter
+- https://oingdaddy.tistory.com/196
