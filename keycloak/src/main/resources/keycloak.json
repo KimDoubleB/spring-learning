@@ -1,0 +1,10 @@
+{
+  "realm": "bb",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "bb1",
+  "credentials": {
+    "secret": "293c9c1a-8416-4305-97d9-2c8be9216152"
+  },
+  "confidential-port": 0
+}
