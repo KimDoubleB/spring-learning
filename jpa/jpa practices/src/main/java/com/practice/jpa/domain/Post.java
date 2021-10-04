@@ -22,7 +22,7 @@ import java.util.List;
 @Table(name = "post")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Post {
+public class Post extends BaseTimeEntity {
 
     @Id
     @Column(name = "post_id")

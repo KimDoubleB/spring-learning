@@ -19,7 +19,7 @@ import java.util.List;
 @Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Member {
+public class Member extends BaseTimeEntity {
 
     @Id
     @Column(name = "member_id")
