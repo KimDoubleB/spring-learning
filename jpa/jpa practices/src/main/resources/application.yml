@@ -18,6 +18,11 @@ spring:
       hibernate:
         format_sql: true
     open-in-view: false
+    defer-datasource-initialization: true # hibernate 초기화 후 데이터 추가
   config:
     activate:
       on-profile: local
+  sql: # 초기 데이터
+    init:
+      data-locations: classpath:data/data.sql
+      mode: always
