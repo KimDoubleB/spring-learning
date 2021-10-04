@@ -1,0 +1,19 @@
+spring:
+  h2: # h2 활성화
+    console:
+      enabled: true
+      path: /h2-console
+  datasource: # db 설정
+    url: jdbc:h2:~/test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:  # jpa 설정
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
