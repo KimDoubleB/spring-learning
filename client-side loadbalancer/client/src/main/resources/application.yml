@@ -1,0 +1,8 @@
+target:
+  servers:
+    - host: "localhost"
+      port: 8081
+    - host: "localhost"
+      port: 8082
+    - host: "localhost"
+      port: 8083

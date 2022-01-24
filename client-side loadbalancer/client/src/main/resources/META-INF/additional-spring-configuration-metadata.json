@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "target.servers",
+      "type": "java.lang.String",
+      "description": "target servers for client load balancing."
+    }
+  ]
+}

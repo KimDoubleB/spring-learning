@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: doubleb-server
+
+server:
+  port: ${SERVER_PORT}
