@@ -2,7 +2,7 @@ jib {
     to {
         // TODO: 환경변수 이용
         image = "123220671310.dkr.ecr.ap-northeast-2.amazonaws.com/auto-github-action-deploy"
-        tags = ["latest", "local-" + System.currentTimeMillis()]
+        tags = ["local-" + System.currentTimeMillis()]
     }
     container {
         // Set JVM options.
