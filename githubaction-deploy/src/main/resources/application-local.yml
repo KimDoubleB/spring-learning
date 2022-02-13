@@ -1,3 +1,0 @@
-server:
-  profile: ${LOCAL_PROFILE}
-  port: 8081
