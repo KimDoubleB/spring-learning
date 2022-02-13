@@ -1,0 +1,2 @@
+server:
+  profile: ${PROD_PROFILE}
