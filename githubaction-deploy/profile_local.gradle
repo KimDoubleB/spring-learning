@@ -7,9 +7,9 @@ jib {
     container {
         // Set JVM options.
         jvmFlags = ['-Dspring.profiles.active=local', '-XX:+UseContainerSupport',
-                    '-Dserver.port=8080', '-Dfile.encoding=UTF-8']
+                    '-Dserver.port=8081', '-Dfile.encoding=UTF-8']
         // Expose different port.
-        ports = ['8080']
+        ports = ['8081']
         user = "nobody:nogroup"
     }
 }
