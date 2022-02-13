@@ -16,6 +16,7 @@ public class AutoHandler {
     }
 
     public Mono<ServerResponse> getProfile(ServerRequest serverRequest) {
+        log.info("Request headers: {}", serverRequest.headers());
         var currentProfile = profileProperty.profile();
         log.info("Current Profile: {}", currentProfile);
         return ServerResponse.ok().body(Mono.just(currentProfile), String.class);
