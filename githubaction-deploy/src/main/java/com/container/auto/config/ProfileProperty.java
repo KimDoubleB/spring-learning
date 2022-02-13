@@ -1,4 +1,4 @@
-package com.container.auto.profile;
+package com.container.auto.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
