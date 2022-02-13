@@ -1,0 +1,3 @@
+server:
+  profile: ${PROD_PROFILE}
+  port: 8080
