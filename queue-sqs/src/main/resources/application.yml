@@ -1,1 +1,15 @@
-
+cloud:
+  aws:
+    credentials:
+      access-key: ${AWS_ACCESS_KEY}
+      secret-key: ${AWS_SECRET_KEY}
+    region:
+      static: "ap-northeast-2"
+    stack:
+      auto: false
+    sqs:
+      queue:
+        some-queue-name: ${AWS_SQS_NAME}
+        some-queue-url: ${AWS_SQS_URL}
+        other-queue-name: ${AWS_SQS_NAME}
+        other-queue-url: ${AWS_SQS_URL}
