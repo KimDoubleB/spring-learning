@@ -1,6 +1,3 @@
 server:
-  value-1: "value1"
-  value-2: "value2"
-  cache-time:
-    a-cache: 10
-    b-cache: 20
+  value-1: 30
+  value-2: 10

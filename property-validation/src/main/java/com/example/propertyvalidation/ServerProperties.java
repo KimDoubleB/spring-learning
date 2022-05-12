@@ -1,29 +1,35 @@
 package com.example.propertyvalidation;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
+import org.springframework.validation.annotation.Validated;
 
 @ConfigurationProperties(prefix = "server")
-@ConstructorBinding
-@RequiredArgsConstructor
-@Getter
-@ToString
-public class ServerProperties {
+@Validated
+@Data
+public class ServerProperties implements Validator {
 
-    private final String value1;
-    private final String value2;
-    private final CacheTime cacheTime;
+    private int value1;
+    private int value2;
 
-    @ConstructorBinding
-    @RequiredArgsConstructor
-    @Getter
-    @ToString
-    public static class CacheTime {
-        private final int aCache;
-        private final int bCache;
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return ServerProperties.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        ValidationUtils.rejectIfEmpty(errors, "value1", "value1.empty");
+        ValidationUtils.rejectIfEmpty(errors, "value2", "value2.empty");
+
+        var properties = (ServerProperties) target;
+        System.out.println("properties = " + properties);
+        if (properties.getValue1() > properties.getValue2()) {
+            errors.rejectValue("value1", "value1.greaterThanValue2", "value1 must be less than value2");
+        }
     }
 
 }
