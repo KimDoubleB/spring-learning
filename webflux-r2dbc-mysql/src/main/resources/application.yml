@@ -1,0 +1,8 @@
+spring:
+  r2dbc:
+    url: r2dbc:pool:mysql://localhost:3306/webflux
+    username: user
+    password: user
+logging:
+  level:
+    org.springframework.r2dbc.core: debug
