@@ -1,0 +1,19 @@
+GET localhost:8080/sample/no-etag
+
+###
+GET localhost:8080/sample/etag/1
+
+###
+GET localhost:8080/sample/etag/2
+
+###
+# 분마다 ETag가 변경된다
+GET localhost:8080/sample/etag/minute
+
+> {%
+client.global.set("EtagValue", response.headers.valueOf("ETag"));
+%}
+
+### ETag 사용한 request
+GET localhost:8080/sample/etag/minute
+If-None-Match: {{EtagValue}}
