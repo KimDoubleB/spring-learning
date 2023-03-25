@@ -27,7 +27,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-function-web'
 // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-function-adapter-aws
-	implementation 'org.springframework.cloud:spring-cloud-function-adapter-aws:4.0.1'
+	implementation 'org.springframework.cloud:spring-cloud-function-adapter-aws'
 // https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-core
 	implementation 'com.amazonaws:aws-lambda-java-core:1.2.2'
 // https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-events
