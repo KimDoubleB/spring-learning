@@ -1,0 +1,47 @@
+### URI - version 1
+GET localhost:8080/api/uri/v1/versions
+
+### URI - version 2
+GET localhost:8080/api/uri/v2/versions
+
+### request parameter - version 1
+GET localhost:8080/api/parameter/versions?version=1
+
+### request parameter - version 2
+GET localhost:8080/api/parameter/versions?version=2
+
+### header - version 1
+GET localhost:8080/api/header/versions
+X-API-Version: 1
+
+### header - version 2
+GET localhost:8080/api/header/versions
+X-API-Version: 2
+
+### accept header - version 1 - not provide accept header
+GET localhost:8080/api/header/accept/versions
+
+### accept header(content negotiation) - version 1
+GET localhost:8080/api/header/accept/versions
+Accept: application/double.b.api.v1+json
+
+### accept header(content negotiation) - version 1 - order
+GET localhost:8080/api/header/accept/versions
+Accept: application/double.b.api.v1+json, application/double.b.api.v2+json,
+
+### accept header - version 2
+GET localhost:8080/api/header/accept/versions
+Accept: application/double.b.api.v2+json
+
+### accept header(content negotiation) - version 2 - order
+GET localhost:8080/api/header/accept/versions
+Accept: application/double.b.api.v2+json, application/double.b.api.v1+json,
+
+### accept header(content negotiation) - version 1 - q factor
+GET localhost:8080/api/header/accept/versions
+Accept: application/double.b.api.v1+json;q=0.3, application/double.b.api.v2+json;q=0.1
+
+### accept header(content negotiation) - version 2 - q factor
+GET localhost:8080/api/header/accept/versions
+Accept: application/double.b.api.v1+json;q=0.7, application/double.b.api.v2+json;q=0.9
+
