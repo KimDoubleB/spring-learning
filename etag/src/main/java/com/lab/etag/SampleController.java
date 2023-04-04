@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,13 @@ public class SampleController {
 		log.info("etag-api called");
 		return String.format("hello %s id", id);
 	}
-	
+
+	@PutMapping("/etag/{id}")
+	public String updateEtagApi(@PathVariable Long id) {
+		log.info("update-etag-api called");
+		return String.format("update %s id", id);
+	}
+
 	@GetMapping("/etag/minute")
 	public String etagMinuteApi() {
 		log.info("etag-minute-api called");

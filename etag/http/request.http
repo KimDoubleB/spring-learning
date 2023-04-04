@@ -3,8 +3,22 @@ GET localhost:8080/sample/no-etag
 ###
 GET localhost:8080/sample/etag/1
 
+> {%
+client.global.set("EtagValue", response.headers.valueOf("ETag"));
+%}
 ###
 GET localhost:8080/sample/etag/2
+
+> {%
+client.global.set("EtagValue", response.headers.valueOf("ETag"));
+%}
+###
+PUT localhost:8080/sample/etag/1
+If-Match: {{EtagValue}}
+
+###
+PUT localhost:8080/sample/etag/2
+If-Match: {{EtagValue}}
 
 ###
 # 분마다 ETag가 변경된다
