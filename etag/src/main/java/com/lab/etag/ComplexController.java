@@ -1,7 +1,10 @@
 package com.lab.etag;
 
+import java.io.IOException;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.ServletWebRequest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lab.etag.dto.Request;
 import com.lab.etag.dto.ResponseData;
 import com.lab.etag.service.EtagService;
 import com.lab.etag.utils.EtagUtils;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,6 +31,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ComplexController {
 
+	private final ObjectMapper objectMapper;
 	private final EtagService etagService;
 
 	@GetMapping
@@ -52,6 +60,26 @@ public class ComplexController {
 		return ResponseEntity.status(HttpStatus.OK.value())
 			.header(HttpHeaders.ETAG, EtagUtils.generateETagHeaderValue(savedData))
 			.body(savedData);
+	}
+
+	@PostMapping("/midAirCollision/spring")
+	public void saveDataUsingSpring(HttpServletRequest httpServletRequest,
+	                                HttpServletResponse httpServletResponse,
+	                                @RequestBody Request requestData) throws IOException {
+		var currentData = etagService.getSomeData(requestData);
+		var currentEtag = EtagUtils.generateETagHeaderValue(currentData);
+
+		var isModified = new ServletWebRequest(httpServletRequest, httpServletResponse)
+			.checkNotModified(currentEtag);
+
+		if (!isModified) {
+			log.info("Save requestData: {}", requestData);
+			var savedData = etagService.saveSomeData(requestData);
+			var resultData = objectMapper.writeValueAsString(savedData);
+			httpServletResponse.setStatus(HttpStatus.OK.value());
+			httpServletResponse.setContentType(MediaType.APPLICATION_JSON_VALUE);
+			httpServletResponse.getWriter().write(resultData);
+		}
 	}
 
 }
