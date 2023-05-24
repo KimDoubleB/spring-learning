@@ -26,6 +26,7 @@ public class SecurityConfig {
 
 		return http
 			.oauth2Login()
+			.defaultSuccessUrl("/api/login")
 			.and().logout()
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 			.addLogoutHandler(logoutHandler)
