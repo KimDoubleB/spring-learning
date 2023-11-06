@@ -1,0 +1,2 @@
+elasticsearch:
+  server-url: http://localhost:9200
