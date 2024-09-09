@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: "bb-spring-boot-actuator-demo"
+
+management:
+  server:
+    port: 9925
+  endpoints:
+    enabled-by-default: false
+    web:
+      base-path: /_status
+      exposure:
+        include: info, health, metrics, prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      percentiles:
+        http.server.requests: 0.5, 0.8, 0.95, 0.99, 1.0
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+    defaults:
+      enabled: false
+    ping:
+      enabled: true
+  endpoint:
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    health:
+      enabled: true
+      probes:
+        enabled: true
+      show-details: always
+#      show-components: always
+  info`:
+    java:
+      enabled: true
