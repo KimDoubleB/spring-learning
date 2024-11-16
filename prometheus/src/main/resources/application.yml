@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: "prometheus-demo"
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    enabled-by-default: false
+    web:
+      base-path: /monitoring
+      exposure:
+        include: health, metrics, prometheus
+  endpoint:
+    health:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
