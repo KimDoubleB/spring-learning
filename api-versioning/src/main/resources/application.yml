@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: api-versioning
+
+server:
+  port: 8080
+  
