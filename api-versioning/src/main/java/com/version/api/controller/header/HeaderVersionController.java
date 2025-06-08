@@ -11,8 +11,15 @@ import java.util.List;
 @RequestMapping("/api/header")
 public class HeaderVersionController {
 
+	// version을 지정하지 않으면 validation 자체도진행되지 않음
+	// VersionRequestCondition에서 version이 null로 처리됨
 	@GetMapping(value = "/versions", headers = "X-API-Version=1")
 	public ResponseEntity<List<String>> getVersionsV1() {
+		return ResponseEntity.ok(List.of("v1.1", "v1.2", "v1.3"));
+	}
+
+	@GetMapping(value = "/versions", version = "1.0.1")
+	public ResponseEntity<List<String>> getVersionsV1ByVersion() {
 		return ResponseEntity.ok(List.of("v1.1", "v1.2", "v1.3"));
 	}
 
