@@ -1,0 +1,9 @@
+### URI - version 3
+GET localhost:8080/api/uri/v3/versions
+
+### request parameter - version 3
+GET localhost:8080/api/parameter/versions?version=3
+
+### header - version 1
+GET localhost:8080/api/header/versions
+X-API-Version: 3
